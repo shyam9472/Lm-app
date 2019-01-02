@@ -1,0 +1,54 @@
+
+<h1>MY LEAVE DETAILS</h1>
+<table border = "3" align = "center">
+  <tr>
+    <th>Employee ID</th>
+    <th>Leave ID</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Number of Days</th>
+    <th>Leave Type</th>
+    <th>Leave Reason</th>
+    <th>Leave Status</th>
+    <th>Applied Date</th>
+    <th>Manager Comments</th>
+  </tr>   
+    <tr *ngFor = "let ld of leavedetails | async">
+      <td>
+        {{ld.empId}}
+      </td>
+      <td>
+        {{ld.leaId}}
+      </td>
+      <td>
+        {{ld.sdate}}
+      </td>
+      <td>
+        {{ld.edate}}
+      </td>
+      <td>
+        {{ld.ndays}}
+      </td>
+      <td>
+        {{ld.leatype}}
+      </td>
+      <td>
+        {{ld.leaRea}}
+      </td>
+      <td>
+        {{ld.leaSta}}
+      </td>
+      <td>
+        {{ld.leaAppOn}}
+      </td>
+      <td>
+        {{ld.leaMgrCom}}
+      </td>
+    </tr>
+    </table>
+
+    <br>
+    <button (click)="newLeave()">New Application</button>&nbsp;&nbsp;
+
+    <br><br><br><br><br><br><br>
+  

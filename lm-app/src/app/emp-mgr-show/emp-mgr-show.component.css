@@ -1,0 +1,47 @@
+ 
+  table, th, td {
+    
+}
+
+body {
+  background-color: powderblue;
+}
+table {
+  width: 60%;
+  height: 50%;
+  background-color: rgb(107, 150, 206);
+  align: "right";
+  align-self: auto;
+  border: 5px solid black;
+  /* vertical-align: top; */
+  caption-side: top;
+  
+}
+td {
+  height: 20px;
+  border-collapse: collapse;
+  vertical-align: top;
+}
+
+th {
+  background-color: black;
+  color: white;
+  height: 50px;
+}
+
+/* Left and right column */
+td.side {
+  width: 25%;
+}
+
+/* .right {
+  right: 0;
+ background-color: lavender;
+}
+
+.split {
+  right: 0;
+ background-color: lavender;
+} */
+
+

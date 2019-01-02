@@ -1,0 +1,28 @@
+
+  
+  table, th, td {
+    
+  }
+
+  body {
+    background-color: powderblue;
+  }
+  
+   table {
+     width: 60%;
+     height: 50%;
+    background-color:   rgb(107, 150, 206);
+    align-self: center;
+    border: 5px solid black;
+    }
+
+  td {
+    /* background-color:lavender; */
+    height: 20px;
+    border-collapse: collapse;
+    
+  }
+  th {
+    background-color: black;
+    height: 50px;
+  }

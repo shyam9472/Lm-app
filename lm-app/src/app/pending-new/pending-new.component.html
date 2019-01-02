@@ -1,0 +1,128 @@
+
+<p>
+    <ng-container *ngIf = "empId == 4000 || empId == 5000; else show">
+        <h1>NO REPORTING EMPLOYEES</h1>
+      </ng-container>
+      <ng-template #show>
+    <table style = "text-align:center" align = "center">
+  <h1>MY REPORTING EMPLOYEES'S LEAVE DETAILS</h1>
+
+  
+
+  
+  <p align = "center">
+    <input [(ngModel)]="searchText1" placeholder="Search.." class="advancedSearchTextbox" >
+  
+      <tr *ngFor="let e of employee | async">
+              <ng-container *ngIf="e.empMgrId==flagp">
+                  <div style = "font-size:22px ; background-color:rgb(12, 78, 177) ; color:rgb(241, 247, 231) ; height :2cm">
+                      &nbsp;&nbsp;<b>Employee ID :</b> &nbsp; {{ e.empId }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;<b>Name :</b> &nbsp; {{ e.empName }}&nbsp;&nbsp;&nbsp;&nbsp;
+     
+                      &nbsp;&nbsp;<b>Email ID :</b> &nbsp; {{ e.empEmail }}&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;<b>Leave Balance :</b> &nbsp; {{ e.empLbal }}
+                  </div>
+    
+                <!-- <tr> <th>Employee ID</th>
+                  <th>Employee Name</th>
+                  <th>Email Id</th> 
+                  <th>Mobile Number</th>
+                  <th>Joining Date</th>
+                  <th>Department</th>
+                  <th>Available Leaves</th>
+                  <th>Manager ID</th> 
+                  </tr><tr>
+                  <td >{{e.empId}}</td>
+                  <td >{{e.empName}} </td>
+                  <td >{{e.empEmail}}</td>
+                  <td >{{e.empMob}} </td>
+                  <td >{{e.empJdate}}</td>
+                  <td >{{e.empDept}} </td>
+                  <td >{{e.empLbal}} </td>
+                  <td >{{e.empMgrId}} </td>
+    </tr> -->
+    
+    
+    <ng-container *ngIf = "lead.length == 0; else tab">
+        <h2> <b> <i>No Pending Leaves</i> </b> </h2> 
+      </ng-container>
+    
+    
+      <ng-template #tab>
+    <table  width = "100%" border = "3" style = "text-align:center; width: 100%; tab-size: 100px">
+    <th>Leave ID</th>
+    <th>Employee ID</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Number of Days</th>
+    <th>Leave Type</th>
+    <th>Leave Status</th>
+    <th>Leave Reason</th> 
+    <th>Applied Date</th>
+    <th>Comments</th>
+    <th>Select</th>
+                    <tr *ngFor="let x of leavedetails | async | grdFilter: {leaId: searchText1, empId : searchText1, leatype:searchText1};" (click)="clickRow(x,e)">
+                      <ng-container *ngIf="e.empId==x.empId">
+                    <td>
+                       {{x.leaId}}
+                    </td>
+                    <td>
+                      {{x.empId}}
+                    </td>
+                    <td>
+                      {{x.sdate}}
+                    </td>
+                    <td>
+                      {{x.edate}}
+                    </td>
+                    <td>
+                      {{x.ndays}}
+                    </td>
+                    <td>
+                      {{x.leatype}}
+                    </td>
+                    <td>
+                      {{x.leaSta}}
+                    </td>
+                    <td>
+                      {{x.leaRea}}
+                    </td> 
+                    <td>
+                      {{x.leaAppOn}}
+                    </td> 
+                    <td>
+                      {{x.leaMgrCom}}
+                    </td>
+                    <td>
+                        <input class="form-check-input" type="checkbox" (change)="selectBadge($event, x.leaId)">
+                    </td>
+                      </ng-container>
+                  </tr>
+                  </table>
+      </ng-template>
+                </ng-container>
+            </tr>
+          </table> 
+        </ng-template>
+
+          <br/> 
+          <div>
+              <ng-container *ngIf = "empId == 4000 || empId == 5000; else show1">
+                 
+                </ng-container>
+                <ng-template #show1>
+                <div style="width: 10px; height: 1px" *ngIf="showButton" >
+                              <input type="button" (click)="doApproveDeny()" value="Approve/Deny">
+                              </div>
+                                 <div style="width: 10px; height: 1px" *ngIf="!showButton">
+                                 <input type="button" value="Approve/Deny" disabled="disabled">
+
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <input  class="button" align="center" style="float: none" type="button" value="ApproveAll" (click)="approveall()">
+                        </ng-template>
+                              <button class="one" style="float: right" align="right" (click)="cancel()">Cancel</button>
+                            
+                         

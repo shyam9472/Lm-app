@@ -1,0 +1,39 @@
+<p>
+  <h1 align="center">EMPLOYEE DETAILS</h1>
+
+<table align="center">
+    <div>
+        <div>
+        <tr>
+          <td>Employee ID</td> <td>{{ (employee | async)?.empId }}</td>
+        </tr> 
+        <tr>
+          <td>Name</td> <td>{{ (employee | async)?.empName }}</td>
+        </tr>
+        <tr>    
+          <td>Email ID</td> <td>{{ (employee | async)?.empEmail }}</td>
+        </tr>
+        <tr>
+          <td>Gender</td> <td>{{ (employee | async)?.empGender }}</td>
+        </tr>
+        <tr>
+          <td>Mobile Number</td> <td>{{ (employee | async)?.empMob }}</td>
+        </tr>
+        <tr>
+          <td>Date of Birth</td> <td>{{ (employee | async)?.empDob }}</td>
+        </tr>
+        <tr>
+          <td>Date of Joining</td> <td>{{ (employee | async)?.empJdate }}</td>
+        </tr>
+        <tr>
+          <td>Department</td> <td>{{ (employee | async)?.empDept }}</td>
+        </tr>
+        <tr>
+          <td>Leave Balance</td> <td>{{ (employee | async)?.empLbal }}</td>
+        </tr>
+        <tr>
+          <td>Manager ID</td> <td>{{ (employee | async)?.empMgrId }}</td>
+        </tr>
+      </div>
+    </div>
+</table>

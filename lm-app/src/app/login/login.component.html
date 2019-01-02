@@ -1,0 +1,18 @@
+<body><h1 >
+  LOGIN
+
+<table border="5" style="text-align:center;" align="center"> 
+<p  style="text-align:center;">
+Employee ID :
+<input type = "number" id = "empId" required
+   [(ngModel)] = "empId" name = "empId">
+   <br/><br/>
+Password : 
+<input type = "password" id = "passWord" required
+   [(ngModel)] = "passWord" required #name = "passWord" #name = "ngModel">
+   <br/><br/>
+
+<input type = "button" value = "Login" (click) = "login(empId)" /> &nbsp;&nbsp;&nbsp;
+<input type = "button" value = "Cancel" (click) = "cancel()" />
+</p> </table></h1>
+</body>

@@ -1,0 +1,72 @@
+
+  <body>
+        <table  align="center">
+    <h1 style= "color:rgba(60, 96, 175, 0.884);text-align:center;"><b>APPLY LEAVE</b> </h1>
+  <div style="text-align:center">
+        <form #userForm="ngForm" (ngSubmit)="applyLeave(userForm)">
+        <div class="form-group">
+               
+            <label for= "sdate"><b><font size="4">Start Date :</font></b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="Date" required="required" [(ngModel)]="model.sdate" name="sdate" #sdate="ngModel"  >  
+            <div *ngIf="sdate.invalid && userForm.submitted && !isValidFormSubmitted"  [ngClass] = "'error'"> 
+                  <h6>Start Date is Required.</h6>
+                 </div>
+        </div>
+        <br/>
+        <div class= "form-group">
+                <label for= "edate"><b><font size="4">End Date :</font>&nbsp;</b> </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type = "Date" class= "form-control"
+                id = "edate" required="required"
+                [(ngModel)]= "model.edate" name="edate" #edate="ngModel" (change)="calculateDays()">
+                <div *ngIf="edate.invalid && userForm.submitted && !isValidFormSubmitted"  [ngClass] = "'error'"> 
+                       <h6>End Date is Required.</h6> 
+                      </div>
+            </div>
+            <br/>
+            <div class="form-group">
+                    <label for="leatype"><b><font size="4">Leave Type :</font></b></label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <select [(ngModel)]="model.leatype" name="leatype" required="required" #leatype="ngModel">
+                        <option value="EL">EL</option>
+                        <option value="SL">SL</option>
+                        <option value="ML">ML</option>
+                    </select>
+            </div>
+            <br/>
+            <div class= "form-group">
+                    <label for= "ndays"><b><font size="4">Number of Days :</font></b> </label>
+                    <input type = "number" class= "form-control" readonly
+                    id = "ndays" required="required"
+                    [(ngModel)]= "model.ndays" name="ndays" #ndays="ngModel" >
+                    <div *ngIf="ndays.invalid && userForm.submitted && !isValidFormSubmitted"  [ngClass] = "'error'"> 
+                            <h6>Leave Days is Required.</h6> 
+                           </div>
+                </div>
+                <br/>
+            <div class= "form-group">
+                    <label for= "leaRea"><b><font size="4">Leave Reason :</font> </b></label>&nbsp;&nbsp;&nbsp;
+                    <input type = "string" class= "form-control" size="30"
+                    id = "leaRea" required="required"
+                    [(ngModel)]= "model.leaRea" name="leaRea" #leaRea="ngModel">
+                    <div *ngIf="leaRea.invalid && userForm.submitted && !isValidFormSubmitted"  [ngClass] = "'error'"> 
+                            <h6>Reason is Required.</h6> 
+                           </div>
+                </div>
+                <br/>
+                <div class="form-group">
+               
+                        <label for= "leaAppOn"><b><font size="4">Applied Date :</font></b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="Date" required="required" [(ngModel)]="model.leaAppOn" name="leaAppOn" #leaAppOn="ngModel"  >  
+                        <div *ngIf="leaAppOn.invalid && userForm.submitted && !isValidFormSubmitted"  [ngClass] = "'error'"> 
+                              <h6>Applied Date is Required.</h6>
+                             </div>
+                    </div>
+                    <br/><br/>
+                <button class=button>Apply</button>
+                <input type="button" class="button" value="Cancel" (click)="cancel()">
+                <h3 *ngIf="isValidFormSubmitted == true">STATUS: {{this.msg}}</h3>
+        </form>
+    </div>
+</table>
+    
+  </body>
+  

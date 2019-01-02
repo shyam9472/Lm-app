@@ -1,0 +1,23 @@
+<form> <table align="center">
+  <h1 style= "color:rgba(60, 96, 175, 0.884);text-align:center;"><b>APPROVE/DENY LEAVE</b> </h1> 
+
+  
+  <b>
+  Employ ID :  {{ (employee  | async)?.empId }}    <br><br>
+  Employ Name :  {{ (employee  | async)?.empName }}<br><br>
+  Leave Balance : {{ (employee  | async)?.empLbal }}<br><br>
+
+  StartDate : {{ (leavedetails  | async)?.sdate }}<br><br>
+  EndDate : {{ (leavedetails  | async)?.edate }}<br><br>
+  LeaveType : {{ (leavedetails  | async)?.leatype }}<br><br>  
+  No Of Days : {{ (leavedetails  | async)?.ndays }}<br><br>
+  Reason : {{ (leavedetails  | async)?.leaRea }}<br><br>
+   Comment:<textarea name="comment" [(ngModel)]="ld.leaMgrCom" required #name = "ngModel"></textarea><br><br>
+  <button (click)="approve()">Approve</button>&nbsp;&nbsp;
+  <button (click)="reject()">Deny</button>&nbsp;&nbsp;
+  <button (click)="cancel()">Cancel</button>&nbsp;&nbsp;
+<br/>
+  Result : {{msg}}
+</b>
+</table>
+</form>

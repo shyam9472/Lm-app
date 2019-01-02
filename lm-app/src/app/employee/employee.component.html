@@ -1,0 +1,59 @@
+
+<body>
+
+<p align="center">  
+<input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox"></p>
+<table>
+    
+  <tr>
+    <th>Employee ID</th>
+    <th>Name</th>
+    <th>Email ID</th>
+    <th>Gender</th>
+    <th>Mobile Number</th>
+    <th>Date of Birth</th>
+    <th>Date of Joining</th>
+    <th>Department</th>
+    <th>Leave Balance</th>
+    <th>Manager ID</th> 
+    <th>          </th>
+  </tr>  
+
+<tr *ngFor = "let emp of employee | async | grdFilter: {empId: searchText, empName : searchText, empMob: searchText};">
+  <td>
+    {{emp.empId}}
+  </td>
+  <td>
+    {{emp.empName}}
+  </td>
+  <td>
+    {{emp.empEmail}}
+  </td>
+  <td>
+    {{emp.empGender}}
+  </td>
+  <td>
+    {{emp.empMob}}
+  </td>
+  <td>
+    {{emp.empDob}}
+  </td>
+  <td>
+    {{emp.empJdate}}
+  </td>
+  <td>
+    {{emp.empDept}}
+  </td>
+  <td>
+    {{emp.empLbal}}
+  </td>
+  <td>
+    {{emp.empMgrId}}
+  </td>
+  <input type = "button" value = "Show" (click) = "showAll(emp.empId,emp.empMgrId)" />
+</tr>
+</table> 
+
+</body>
+
+
